@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Map Scroll</title>
+	<style type="text/css">
+	#outer{
+		width: 70vw;
+		height: 70vh;
+		position: fixed;
+		top: 15vh;
+		left: 15vw;
+		overflow: hidden;
+		background-color: #ccc;
+		border:20px ridge #26ACE2;
+	}
+	#inner{
+		width: 100vw;
+		height: 70vh;
+		/*background-color: red;*/
+
+		display: flex;
+		align-items: stretch;
+
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		transition: all linear 0.5s;
+		background-image: url('map.png');
+		background-size: cover;
+	}
+	#inner>div{
+		cursor: pointer;
+	}
+	.violet{
+		background-color: #652c90;
+		/*flex-basis: 33%;*/
+		flex-grow: 1;
+		height: 100%;
+	}
+	.indigo{
+		background-color: #262261;
+		flex-grow: 1;
+		/*flex-basis: 33%;*/
+		height: 100%;
+	}
+	.blue{
+		background-color: #1b75bb;
+		flex-grow: 1;
+		/*flex-basis: 33%;*/
+		height: 100%;
+	}
+
+	#glit{
+		width: 6.7vw;
+		height: 5vh;
+		left: 15.5%;
+		background-color: transparent;
+		position: fixed;
+		top: 77%;
+	}
+
+	#carp{
+		width: 6.7vw;
+		height: 5vh;
+		left: 22.5%;
+		background-color: transparent;
+		position: fixed;
+		top: 77%;
+	}
+	#thunder{
+		width: 9.3vw;
+		height: 4vh;
+		left: 15.5%;
+		background-color: transparent;
+		position: fixed;
+		top: 85%;
+	}
+
+	#laugh{
+		width: 9.3vw;
+		height: 4vh;
+		left: 25%;
+		background-color: transparent;
+		position: fixed;
+		top: 85%;
+	}
+
+	#kavi{
+		width: 9.3vw;
+		height: 4vh;
+		left: 15.5%;
+		background-color: transparent;
+		position: fixed;
+		top: 92%;
+	}
+	#bites{
+		width: 10vw;
+		height: 4vh;
+		left: 44%;
+		background-color: transparent;
+		position: fixed;
+		top:55%;
+	}
+	#natraj{
+		width: 4.7vw;
+		height: 4vh;
+		left: 54.4%;
+		background-color: transparent;
+		position: fixed;
+		top:55%;
+	}
+	#vwarz{
+		width: 6vw;
+		height: 4vh;
+		left: 66.3%;
+		background-color: transparent;
+		position: fixed;
+		top:75%;
+	}
+
+	#razz{
+		width: 8.5vw;
+		height: 4vh;
+		left: 72.6%;
+		background-color: transparent;
+		position: fixed;
+		top:40%;
+	}
+
+	#sok{
+		width: 5.3vw;
+		height: 4vh;
+		left: 65.2%;
+		background-color: transparent;
+		position: fixed;
+		top:20%;
+	}
+	#dep{
+		width: 6.3vw;
+		height: 4vh;
+		left: 71.2%;
+		background-color: transparent;
+		position: fixed;
+		top:13%;
+	}
+	#mun{
+		width: 5.8vw;
+		height: 4vh;
+		left: 65.25%;
+		background-color: transparent;
+		position: fixed;
+		top:13%;
+	}
+
+	#info{
+		width: 25vw;
+		height: 100%;
+		position: absolute;
+		background-color: #00000099;
+		right: -400px;
+		transition: all ease 1s;
+		color: white;
+
+	}
+
+	#stand1{
+		width: 1.4vw;
+		height: 8.5vh;
+		background-color: #26ACE2;
+		position: fixed;
+		top: 91vh;
+		left: 22vw;
+		border-right: 10px solid #117590;
+
+	}
+	#stand2{
+		width: 1.4vw;
+		height: 8.5vh;
+		background-color: #26ACE2;
+		position: fixed;
+		top: 91vh;
+		left: 77vw;
+		border-right: 10px solid #117590;
+
+	}
+
+	#info.show{
+		right: 0;
+	}
+	#close{
+		cursor: pointer;
+		width: 50px;
+		height: 50px;
+		background-color: white;
+		border-radius: 50%;
+	}
+	#info.text{
+		text-align: center;
+		color: white;
+	}
+	.text{
+		display: none;
+	}
+
+
+</style>
+</head>
+<body>
+
+	<div id="page6">
+
+		<div id="outer">
+			<div id="inner">
+				<div id="glit"></div>
+				<div id="carp"></div>
+				<div id="thunder"></div>
+				<div id="laugh"></div>
+				<div id="kavi"></div>
+				<div id="bites"></div>
+				<div id="natraj"></div>
+				<div id="vwarz"></div>
+				<div id="razz"></div>
+				<div id="sok"></div>
+				<div id="dep"></div>
+				<div id="mun"></div>
+			</div>
+			<div id="info">
+				<div id="close"></div>
+				<div class="text" id="gliterrati">GLITERRATI</div>
+				<div class="text" id="carpedium">CARPEDIUM</div>
+				<div class="text" id="thunder-text">Thunder</div>
+				<div class="text" id="laugh-text">laugh</div>
+				<div class="text" id="kavi-text">kavi</div>
+				<div class="text" id="bites-text">Carnival of bites</div>
+				<div class="text" id="natraj-text">Natraj</div>
+				<div class="text" id="vwarz-text">vwarz</div>
+				<div class="text" id="razz-text">Razzmatazz</div>
+				<div class="text" id="sok-text">sok</div>
+				<div class="text" id="dep-text">Deprador</div>
+				<div class="text" id="mun-text">NITS MUN</div>
+			</div>
+		</div>
+		<div id="stand1"></div>
+		<div id="stand2"></div>
+
+	</div>
+</body>
+<script type="text/javascript">
+	let outer =	document.getElementById('outer');
+	let inner = document.getElementById('inner');
+
+	let init = null;
+
+	let p = 50*(inner.offsetWidth - outer.offsetWidth)/inner.offsetWidth;
+
+	outer.addEventListener('mouseenter', function(e){
+		init = e.clientX;
+	})
+
+	outer.addEventListener('mouseleave', function(e){
+		init = null;
+		// console.log(init);
+	})	
+
+	outer.addEventListener('mousemove', function(e){
+
+		let xpc = (e.clientX-outer.offsetLeft)/outer.offsetWidth;
+
+		let temp = 2*p*(xpc-0.5)+50;
+
+		inner.style.transform = 'translateX('+ -temp +'%)'
+	})
+
+	// info
+
+	let glitterati= document.getElementById('glit');
+	let info= document.getElementById('info');
+	let close= document.getElementById('close');
+	let carpedium= document.getElementById('carp');
+	let glit= document.getElementById('gliterrati');
+	let carp= document.getElementById('carpedium');
+	let text= document.getElementsByClassName('text');
+	let thunder= document.getElementById('thunder');
+	let thunderText= document.getElementById('thunder-text');
+	let laugh= document.getElementById('laugh');
+	let laughText= document.getElementById('laugh-text');
+	let kavi= document.getElementById('kavi');
+	let kaviText= document.getElementById('kavi-text');
+	let bites= document.getElementById('bites');
+	let bitesText= document.getElementById('bites-text');
+	let natraj= document.getElementById('natraj');
+	let natrajText= document.getElementById('natraj-text');
+	let vwarz= document.getElementById('vwarz');
+	let vwarzText= document.getElementById('vwarz-text');
+	let razz= document.getElementById('razz');
+	let razzText= document.getElementById('razz-text');
+	let sok= document.getElementById('sok');
+	let sokText= document.getElementById('sok-text');
+	let dep= document.getElementById('dep');
+	let depText= document.getElementById('dep-text');
+	let mun= document.getElementById('mun');
+	let munText= document.getElementById('mun-text');
+
+	glitterati.addEventListener('click',function(){
+		info.classList.add("show");
+
+		for(var i=0;i<text.length;i++){
+			text[i].style.display="none";
+		}
+		glit.style.display="block";
+
+	})
+	carpedium.addEventListener('click',function(){
+
+		info.classList.add("show");
+
+		for(var i=0;i<text.length;i++){
+			text[i].style.display="none";
+		}
+		carp.style.display="block";
+	})
+
+	thunder.addEventListener('click',function(){
+
+		info.classList.add("show");
+
+		for(var i=0;i<text.length;i++){
+			text[i].style.display="none";
+		}
+		thunderText.style.display="block";
+	})
+
+	laugh.addEventListener('click',function(){
+
+		info.classList.add("show");
+
+		for(var i=0;i<text.length;i++){
+			text[i].style.display="none";
+		}
+		laughText.style.display="block";
+	})
+
+	kavi.addEventListener('click',function(){
+
+		info.classList.add("show");
+
+		for(var i=0;i<text.length;i++){
+			text[i].style.display="none";
+		}
+		kaviText.style.display="block";
+	})
+
+	bites.addEventListener('click',function(){
+
+		info.classList.add("show");
+
+		for(var i=0;i<text.length;i++){
+			text[i].style.display="none";
+		}
+		bitesText.style.display="block";
+	})
+
+	natraj.addEventListener('click',function(){
+
+		info.classList.add("show");
+
+		for(var i=0;i<text.length;i++){
+			text[i].style.display="none";
+		}
+		natrajText.style.display="block";
+	})
+
+	vwarz.addEventListener('click',function(){
+
+		info.classList.add("show");
+
+		for(var i=0;i<text.length;i++){
+			text[i].style.display="none";
+		}
+		vwarzText.style.display="block";
+	})
+
+	razz.addEventListener('click',function(){
+
+		info.classList.add("show");
+
+		for(var i=0;i<text.length;i++){
+			text[i].style.display="none";
+		}
+		razzText.style.display="block";
+	})
+
+	sok.addEventListener('click',function(){
+
+		info.classList.add("show");
+
+		for(var i=0;i<text.length;i++){
+			text[i].style.display="none";
+		}
+		sokText.style.display="block";
+	})
+	dep.addEventListener('click',function(){
+
+		info.classList.add("show");
+
+		for(var i=0;i<text.length;i++){
+			text[i].style.display="none";
+		}
+		depText.style.display="block";
+	})
+	mun.addEventListener('click',function(){
+
+		info.classList.add("show");
+
+		for(var i=0;i<text.length;i++){
+			text[i].style.display="none";
+		}
+		munText.style.display="block";
+	})
+
+	close.addEventListener('click',function(){
+		info.classList.remove('show');
+
+	})
+</script>
+</html>
